@@ -11,7 +11,6 @@ function App() {
   const [searchKey,setSearchKey]= useState("")
   const [trailer,setTrailer]= useState(null);
   const [movie,setMovie]= useState({title:"loading Movies"});
-  const [playing,setPlaying]= useState(false);
 
   const fetchMovies = async(searchKey) =>{
     const type = searchKey ? "search": "discover"
@@ -40,13 +39,6 @@ function App() {
       },
      });
 
-     if(data.videos && data.videos.results){
-      const trailer = data.videos.results.find(
-        (vid) => vid.name === "official Trailer"
-      );
-
-      setTrailer(trailer ? trailer: data.video.results[0])
-     }
 
      setMovie(data)
     }
@@ -71,7 +63,7 @@ function App() {
     <div className="container mt-3">
       <h2 className='title mt-8 mb-8'>MOVIES</h2>
       <form className='container mb-4' onSubmit={searchMovies}>
-        <input type='text'placeholder='-Pelicula-' className='bg-yellow-300 'onChange={(e)=> 
+        <input type='text'placeholder='*Enter movie*' className='bg-yellow-300 rounded'onChange={(e)=> 
         setSearchKey(e.target.value)}/>
         <button className='btn btn-primary bg-yellow-500 '>Search</button>
       </form>
