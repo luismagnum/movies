@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import peli from './images/peli.png';
 
 function App() {
   const API_URL= 'https://api.themoviedb.org/3'
@@ -62,10 +63,13 @@ function App() {
   return (
     <div className="container mt-3">
       <h2 className='title mt-8 mb-8'>MOVIES</h2>
-      <form className='container mb-4' onSubmit={searchMovies}>
-        <input type='text'placeholder='*Enter movie*' className='bg-yellow-300 rounded'onChange={(e)=> 
+      <div className='text-center justify-center flex w-full mb-4'>
+        <img src={peli} alt=''/>
+      </div>
+      <form className='container text-center font-bold justify-center py-2 mb-8 ' onSubmit={searchMovies}>
+        <input type='text'placeholder='  *Enter movie*' className='bg-yellow-300 py-2 ml-2 rounded'onChange={(e)=> 
         setSearchKey(e.target.value)}/>
-        <button className='btn btn-primary bg-yellow-500 '>Search</button>
+        <button className='btn btn-primary bg-yellow-500 ml-2 rounded-full'>Search</button>
       </form>
       <div>
        <div>
